@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchAllPosts } from "../api/posts";
 import PostCard from "./Card";
+import Footer from "./Footer";
 export default function Posts() {
   const [posts, setPosts] = useState([]);
 
@@ -16,14 +17,14 @@ export default function Posts() {
       });
   }, [setPosts]);
   return (
-    <div className=" text-center row ">
-      <div style={{ color: "#f72585" }}>
-        <h1>Posts</h1>
+    <>
+      <div className=" text-center row ">
+        <br />
+        {posts.map((post, index) => {
+          return <PostCard key={index} Title={post.title} Body={post.body} />;
+        })}
       </div>
-      <br />
-      {posts.map((post, index) => {
-        return <PostCard key={index} Title={post.title} Body={post.body} />;
-      })}
-    </div>
+      <Footer />
+    </>
   );
 }

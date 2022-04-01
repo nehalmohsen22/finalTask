@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Footer from "./Footer";
 
 export default function Profile() {
   let { id } = useParams();
@@ -279,6 +280,7 @@ export default function Profile() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
