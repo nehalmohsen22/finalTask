@@ -4,6 +4,7 @@ import { fetchPostByID } from "../api/posts";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "./Footer";
+import ErrorPage from "./Error";
 export default function Post() {
   const { id } = useParams();
   const [post, setPost] = useState([]);
@@ -23,11 +24,11 @@ export default function Post() {
   return (
     <>
       <Container className="emp-profile">
-        {!post && <div>loading</div>}
+        {!post && <div></div>}
         {post ? (
           <PostCard key={id} Title={post.title} Body={post.body} />
         ) : (
-          <div>Not Fond</div>
+          <ErrorPage />
         )}
       </Container>
       <Footer />
